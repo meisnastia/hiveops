@@ -11,8 +11,17 @@ const HEIGHT = 630;
 
 // Load and resize Nastya's photo
 const photoBuffer = readFileSync(resolve(root, "public/img/nastya.png"));
-const photo = await sharp(photoBuffer)
-  .resize({ height: 630, fit: "inside" })
+const photoBig = await sharp(photoBuffer)
+  .resize({ height: 750, fit: "inside" })
+  .flop() // horizontal flip — look left
+  .toBuffer();
+const bigMeta = await sharp(photoBig).metadata();
+
+// Crop to fit canvas — take bottom portion (face + torso)
+const cropTop = bigMeta.height - HEIGHT;
+const cropLeft = Math.max(0, bigMeta.width - 500);
+const photo = await sharp(photoBig)
+  .extract({ left: cropLeft, top: Math.max(0, cropTop), width: Math.min(bigMeta.width - cropLeft, 500), height: Math.min(bigMeta.height, HEIGHT) })
   .toBuffer();
 const photoMeta = await sharp(photo).metadata();
 
@@ -57,8 +66,8 @@ const textOverlay = `
     <rect x="0" y="0" width="${WIDTH}" height="5" fill="#FFC107"/>
     <rect x="0" y="${HEIGHT - 5}" width="${WIDTH}" height="5" fill="#FFC107"/>
 
-    <!-- Left accent bar -->
-    <rect x="56" y="130" width="4" height="100" rx="2" fill="#FFC107"/>
+    <!-- Left accent bar (aligned with name) -->
+    <rect x="56" y="160" width="4" height="120" rx="2" fill="#FFC107"/>
 
     <!-- SmartBee brand -->
     <text x="72" y="95" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
@@ -115,7 +124,7 @@ const textOverlay = `
 `;
 
 // Photo position: right side, vertically centered, bottom-aligned
-const photoX = WIDTH - photoMeta.width + 10;
+const photoX = WIDTH - photoMeta.width - 60;
 const photoY = HEIGHT - photoMeta.height;
 
 // Create gradient mask for photo (fade left edge into the dark panel)
