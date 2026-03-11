@@ -20,7 +20,7 @@ const resumeData = {
     {
       title: { en: "DevOps Engineer (Mentorship)", ua: "DevOps інженер (менторство)" },
       company: { en: "Under guidance of a Senior Platform Engineer", ua: "Під керівництвом Senior Platform Engineer" },
-      period: { en: "2024 — 2025", ua: "2024 — 2025" },
+      period: { en: "2024 — Present", ua: "2024 — теперішній час" },
       bullets: {
         en: [
           "Built CI/CD pipeline for a production AI platform: unit tests → lint → type check → build → native tests (~3 min, fail-fast)",

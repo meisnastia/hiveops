@@ -61,7 +61,7 @@
 
   "resume_exp1_title": "DevOps Engineer (Mentorship)",
   "resume_exp1_company": "Under guidance of a Senior Platform Engineer",
-  "resume_exp1_period": "2024 — 2025",
+  "resume_exp1_period": "2024 — Present",
   "resume_exp1_p1": "Built CI/CD pipeline for a production AI platform: unit tests → lint → type check → build → native tests (~3 min, fail-fast)",
   "resume_exp1_p2": "Maintained 900+ test suite across 48 suites with per-module coverage thresholds and regression gates",
   "resume_exp1_p3": "Conducted 4 rounds of security audits, reducing false positive rate from 36% to under 5%",

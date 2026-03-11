@@ -61,7 +61,7 @@
 
   "resume_exp1_title": "DevOps інженер (менторство)",
   "resume_exp1_company": "Під керівництвом Senior Platform Engineer",
-  "resume_exp1_period": "2024 — 2025",
+  "resume_exp1_period": "2024 — теперішній час",
   "resume_exp1_p1": "Побудувала CI/CD пайплайн для production AI платформи: тести → lint → type check → build → native tests (~3 хв, fail-fast)",
   "resume_exp1_p2": "Підтримувала 900+ тестів у 48 suites з coverage thresholds по модулях та regression gates",
   "resume_exp1_p3": "Провела 4 раунди security audit, знизивши false positive rate з 36% до менше 5%",
