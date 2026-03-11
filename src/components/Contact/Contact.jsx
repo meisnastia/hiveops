@@ -14,7 +14,7 @@ export default function Contact() {
     setStatus("sending");
     const form = e.target;
     try {
-      const res = await fetch("https://formspree.io/f/placeholder", {
+      const res = await fetch("https://formspree.io/f/xaqbkjly", {
         method: "POST",
         body: new FormData(form),
         headers: { Accept: "application/json" },
