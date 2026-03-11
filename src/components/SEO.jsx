@@ -18,6 +18,8 @@ export default function SEO({ title, description, path = "" }) {
         content={description || defaultDesc}
       />
       <meta property="og:url" content={`${siteUrl}${path}`} />
+      <meta property="og:image" content={`${siteUrl}/og-image.png`} />
+      <meta name="twitter:image" content={`${siteUrl}/og-image.png`} />
     </Helmet>
   );
 }

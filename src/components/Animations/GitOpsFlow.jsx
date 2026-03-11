@@ -43,18 +43,22 @@ export default function GitOpsFlow() {
   useEffect(() => {
     if (!started) return;
     let step = 0;
+    let resetTimeout;
     const timer = setInterval(() => {
       setActiveStep(step);
       step++;
       if (step >= STEPS.length) {
         clearInterval(timer);
-        setTimeout(() => {
+        resetTimeout = setTimeout(() => {
           setActiveStep(-1);
           setStarted(false);
         }, 3000);
       }
     }, 500);
-    return () => clearInterval(timer);
+    return () => {
+      clearInterval(timer);
+      if (resetTimeout) clearTimeout(resetTimeout);
+    };
   }, [started]);
 
   return (

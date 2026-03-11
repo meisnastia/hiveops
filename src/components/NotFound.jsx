@@ -1,8 +1,12 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function NotFound() {
+  const { t, i18n } = useTranslation();
+  const isUa = i18n.language === "ua";
+
   return (
     <Container
       className="text-center"
@@ -13,9 +17,9 @@ export default function NotFound() {
       }}
     >
       <h1 style={{ fontSize: "6rem", color: "var(--accent)" }}>404</h1>
-      <h2>Page Not Found</h2>
+      <h2>{isUa ? "Сторінку не знайдено" : "Page Not Found"}</h2>
       <p style={{ color: "var(--text-secondary)" }}>
-        The hive doesn&apos;t have this cell.
+        {isUa ? "Такої сторінки не існує." : "This page doesn't exist."}
       </p>
       <Link
         to="/"
@@ -28,7 +32,7 @@ export default function NotFound() {
           padding: "0.6rem 2rem",
         }}
       >
-        Back to Hive
+        {isUa ? "На головну" : "Back Home"}
       </Link>
     </Container>
   );

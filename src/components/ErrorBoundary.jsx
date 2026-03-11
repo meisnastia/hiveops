@@ -31,7 +31,7 @@ class ErrorBoundary extends React.Component {
         >
           <h2>Something went wrong</h2>
           <p style={{ color: "var(--text-secondary)" }}>
-            The hive encountered an error.
+            An unexpected error occurred.
           </p>
           <button
             onClick={() => this.setState({ hasError: false })}

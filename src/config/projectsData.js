@@ -78,7 +78,7 @@ export const PROJECTS = [
       "SQLite / FTS5",
       "WebSocket / SSE",
       "Shell / Scripting",
-      "Tauri",
+      "Native Build",
     ],
     category: "AI/MLOps",
     imgPath: "",

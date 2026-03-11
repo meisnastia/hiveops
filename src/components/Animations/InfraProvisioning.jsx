@@ -64,18 +64,22 @@ export default function InfraProvisioning() {
   useEffect(() => {
     if (!started) return;
     let line = 0;
+    let resetTimeout;
     const timer = setInterval(() => {
       line++;
       setVisibleLines(line);
       if (line >= PLAN_LINES.length) {
         clearInterval(timer);
-        setTimeout(() => {
+        resetTimeout = setTimeout(() => {
           setVisibleLines(0);
           setStarted(false);
         }, 4000);
       }
     }, 120);
-    return () => clearInterval(timer);
+    return () => {
+      clearInterval(timer);
+      if (resetTimeout) clearTimeout(resetTimeout);
+    };
   }, [started]);
 
   return (

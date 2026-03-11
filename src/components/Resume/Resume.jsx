@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/Page/AnnotationLayer.css";
-import "react-pdf/dist/Page/TextLayer.css";
 import {
   FaTerminal,
   FaDownload,
@@ -19,8 +16,7 @@ import {
 } from "react-icons/fa";
 import SEO from "../SEO";
 
-// PDF.js worker (local copy — CDN doesn't have this version)
-pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
+const PdfPreview = lazy(() => import("./PdfPreview"));
 
 /* ── Data ─────────────────────────────────────── */
 
@@ -76,22 +72,10 @@ const PDF_FILES = {
 
 export default function Resume() {
   const { t, i18n } = useTranslation();
-  const [width, setWidth] = useState(900);
-  const [pdfReady, setPdfReady] = useState(false);
-  const [numPages, setNumPages] = useState(null);
   const [showPreview, setShowPreview] = useState(false);
 
   const lang = i18n.language === "ua" ? "ua" : "en";
   const pdfPath = PDF_FILES[lang];
-
-  useEffect(() => {
-    setWidth(window.innerWidth);
-    const handleResize = () => setWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const scale = width >= 2560 ? 2.0 : width >= 1920 ? 1.7 : width >= 1200 ? 1.4 : width > 786 ? 1.1 : 0.55;
 
   const experience = [
     {
@@ -166,7 +150,7 @@ export default function Resume() {
           </div>
         </div>
 
-        {/* ═══ PDF Preview (collapsible) ═══ */}
+        {/* ═══ PDF Preview (collapsible, lazy-loaded) ═══ */}
         <button
           onClick={() => setShowPreview((v) => !v)}
           style={{
@@ -189,38 +173,9 @@ export default function Resume() {
         </button>
 
         {showPreview && (
-          <div style={{
-            background: "var(--bg-card)",
-            border: "1px solid var(--border-card)",
-            borderRadius: "12px",
-            padding: "1.5rem",
-            marginBottom: "2rem",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}>
-            {!pdfReady && (
-              <div style={{ padding: "3rem 0", display: "flex", justifyContent: "center" }}>
-                <div className="spinner" />
-              </div>
-            )}
-            <Document
-              file={pdfPath}
-              onLoadSuccess={({ numPages: n }) => { setNumPages(n); setPdfReady(true); }}
-              onLoadError={() => setPdfReady(true)}
-              className="d-flex flex-column align-items-center"
-            >
-              {Array.from({ length: numPages || 1 }, (_, i) => (
-                <Page
-                  key={`page-${i}`}
-                  pageNumber={i + 1}
-                  scale={scale}
-                  renderTextLayer={true}
-                  renderAnnotationLayer={true}
-                />
-              ))}
-            </Document>
-          </div>
+          <Suspense fallback={<div style={{ padding: "3rem 0", display: "flex", justifyContent: "center" }}><div className="spinner" /></div>}>
+            <PdfPreview pdfPath={pdfPath} />
+          </Suspense>
         )}
 
         {/* ═══ ON-SCREEN CARD RESUME (detail view below preview) ═══ */}
@@ -242,7 +197,7 @@ export default function Resume() {
             <Col md={4} className="mt-3 mt-md-0">
               <div style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }}>
                 {[
-                  { icon: <FaMapMarkerAlt />, text: "Ukraine" },
+                  { icon: <FaMapMarkerAlt />, text: i18n.language === "ua" ? "Україна" : "Ukraine" },
                   { icon: <FaEnvelope />, text: "agnilickaya5@gmail.com", href: "mailto:agnilickaya5@gmail.com" },
                   { icon: <FaTelegram />, text: "@anastasi_coco", href: "https://t.me/anastasi_coco" },
                   { icon: <FaLinkedin />, text: "linkedin.com/in/ahnylytska", href: "https://www.linkedin.com/in/ahnylytska/" },

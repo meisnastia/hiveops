@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useRef, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import {
@@ -26,12 +26,19 @@ export default function CICDVisualizer() {
   const [completed, setCompleted] = useState([]);
   const [done, setDone] = useState(false);
 
+  const timersRef = useRef([]);
+
+  useEffect(() => {
+    return () => timersRef.current.forEach(clearTimeout);
+  }, []);
+
   const runPipeline = useCallback(() => {
     if (running) return;
     setRunning(true);
     setDone(false);
     setCompleted([]);
     setCurrentStage(-1);
+    timersRef.current = [];
 
     let i = 0;
     const runStage = () => {
@@ -41,15 +48,18 @@ export default function CICDVisualizer() {
         setRunning(false);
         return;
       }
-      setCurrentStage(i);
-      setTimeout(() => {
-        setCompleted((prev) => [...prev, i]);
+      const idx = i;
+      setCurrentStage(idx);
+      const tid = setTimeout(() => {
+        setCompleted((prev) => [...prev, idx]);
         i++;
         runStage();
-      }, STAGES[i].duration);
+      }, STAGES[idx].duration);
+      timersRef.current.push(tid);
     };
 
-    setTimeout(runStage, 300);
+    const startTid = setTimeout(runStage, 300);
+    timersRef.current.push(startTid);
   }, [running]);
 
   return (

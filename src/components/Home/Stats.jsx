@@ -18,6 +18,7 @@ function AnimatedCounter({ target, suffix = "", prefix = "" }) {
   const counted = useRef(false);
 
   useEffect(() => {
+    let timer;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !counted.current) {
@@ -26,7 +27,7 @@ function AnimatedCounter({ target, suffix = "", prefix = "" }) {
           const steps = 40;
           const increment = target / steps;
           let current = 0;
-          const timer = setInterval(() => {
+          timer = setInterval(() => {
             current += increment;
             if (current >= target) {
               setCount(target);
@@ -41,7 +42,10 @@ function AnimatedCounter({ target, suffix = "", prefix = "" }) {
     );
 
     if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      if (timer) clearInterval(timer);
+    };
   }, [target]);
 
   return (

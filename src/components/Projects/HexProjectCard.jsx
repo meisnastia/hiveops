@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { FaGithub, FaExternalLinkAlt, FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 export default function HexProjectCard({ project }) {
+  const { t } = useTranslation();
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -95,7 +97,7 @@ export default function HexProjectCard({ project }) {
             }}
           >
             {expanded ? <FaChevronUp /> : <FaChevronDown />}
-            {expanded ? "Hide details" : "My role & details"}
+            {expanded ? t("project_hide") : t("project_details")}
           </button>
 
           {expanded && (
@@ -115,7 +117,7 @@ export default function HexProjectCard({ project }) {
                   letterSpacing: "0.05em",
                 }}
               >
-                What I did:
+                {t("project_what_did")}
               </div>
               <ul
                 style={{
@@ -143,7 +145,7 @@ export default function HexProjectCard({ project }) {
                       letterSpacing: "0.05em",
                     }}
                   >
-                    What I learned:
+                    {t("project_what_learned")}
                   </div>
                   <p
                     style={{
