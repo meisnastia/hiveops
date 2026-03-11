@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Type from "./Type";
 
@@ -74,18 +75,18 @@ export default function HeroSection() {
               {t("hero_intro")}
             </p>
             <div style={{ marginTop: "2rem", display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-              <a
-                href="/projects"
+              <Link
+                to="/projects"
                 className="glass-btn-solid"
               >
                 {t("view_projects")}
-              </a>
-              <a
-                href="/terminal"
+              </Link>
+              <Link
+                to="/terminal"
                 className="glass-btn-accent"
               >
                 {t("terminal_resume")}
-              </a>
+              </Link>
             </div>
           </Col>
         </Row>

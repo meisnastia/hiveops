@@ -25,7 +25,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
 /* ── Data ─────────────────────────────────────── */
 
 const SKILLS_LINES = [
-  { group: "Cloud", items: "GCP (Compute, GKE, Cloud SQL, IAM, Cloud Run, Vertex AI), Azure (basics), AWS (concepts)" },
+  { group: "Cloud", items: "GCP (Compute, GKE, Cloud SQL, IAM, Cloud Run, Firebase), Azure (basics), AWS (concepts)" },
   { group: "IaC", items: "Terraform (modules, remote state, workspaces), Helm (basics), Ansible (basics)" },
   { group: "Containers", items: "Docker (Compose, multi-stage builds), Kubernetes (concepts, kubectl, GKE labs)" },
   { group: "CI/CD", items: "GitHub Actions (workflows, secrets, environments), GitLab CI (basics), ArgoCD (concepts)" },

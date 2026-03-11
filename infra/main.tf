@@ -73,6 +73,28 @@ resource "google_firebase_hosting_site" "default" {
   depends_on = [google_firebase_project.default]
 }
 
+# ─── Custom Domain ─────────────────────────────────
+
+variable "domain" {
+  description = "Custom domain for the site"
+  type        = string
+  default     = "smartbee.me"
+}
+
+resource "google_firebase_hosting_custom_domain" "apex" {
+  provider      = google-beta
+  project       = var.project_id
+  site_id       = google_firebase_hosting_site.default.site_id
+  custom_domain = var.domain
+}
+
+resource "google_firebase_hosting_custom_domain" "www" {
+  provider      = google-beta
+  project       = var.project_id
+  site_id       = google_firebase_hosting_site.default.site_id
+  custom_domain = "www.${var.domain}"
+}
+
 # ─── Service Account for CI/CD ──────────────────────
 
 resource "google_service_account" "github_actions" {
@@ -95,8 +117,26 @@ resource "google_project_iam_member" "roles" {
 # ─── Outputs ────────────────────────────────────────
 
 output "hosting_url" {
-  value       = "https://${var.project_id}.web.app"
-  description = "Firebase Hosting default URL"
+  value       = "https://${var.domain}"
+  description = "Firebase Hosting custom domain URL"
+}
+
+output "dns_records_needed" {
+  value       = <<-EOT
+    Configure these DNS records in GoDaddy for ${var.domain}:
+
+    1. A records for apex domain (smartbee.me):
+       @ → 199.36.158.100
+
+    2. CNAME for www:
+       www → ${var.project_id}.web.app
+
+    3. TXT for domain verification (check Firebase console for exact value):
+       @ → firebase=<verification-token>
+
+    After adding records, Firebase will auto-provision SSL certificate.
+  EOT
+  description = "DNS records to configure in GoDaddy"
 }
 
 output "sa_email" {
