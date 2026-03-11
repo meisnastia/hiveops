@@ -25,7 +25,7 @@ export const PROJECTS = [
     ],
     category: "Cloud",
     imgPath: "",
-    ghLink: "https://github.com/meisnastia/gcp-foundation",
+    ghLink: "",
     demoLink: "",
   },
   {
@@ -53,7 +53,7 @@ export const PROJECTS = [
     ],
     category: "Monitoring",
     imgPath: "",
-    ghLink: "https://github.com/meisnastia/statushive",
+    ghLink: "",
     demoLink: "",
   },
   {
