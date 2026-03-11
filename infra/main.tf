@@ -6,16 +6,24 @@ terraform {
       source  = "hashicorp/google"
       version = "~> 5.0"
     }
+    google-beta = {
+      source  = "hashicorp/google-beta"
+      version = "~> 5.0"
+    }
   }
 
-  # Remote state — uncomment when GCS bucket is created
-  # backend "gcs" {
-  #   bucket = "hiveops-tfstate"
-  #   prefix = "terraform/state"
-  # }
+  backend "gcs" {
+    bucket = "hiveops-tfstate"
+    prefix = "terraform/state"
+  }
 }
 
 provider "google" {
+  project = var.project_id
+  region  = var.region
+}
+
+provider "google-beta" {
   project = var.project_id
   region  = var.region
 }
@@ -33,49 +41,36 @@ variable "region" {
   default     = "europe-west1"
 }
 
-variable "custom_domain" {
-  description = "Custom domain for the site"
-  type        = string
-  default     = "smartbee.me"
-}
-
 # ─── Enable APIs ────────────────────────────────────
 
-resource "google_project_service" "firebase" {
-  service            = "firebase.googleapis.com"
-  disable_on_destroy = false
-}
+resource "google_project_service" "apis" {
+  for_each = toset([
+    "firebase.googleapis.com",
+    "firebasehosting.googleapis.com",
+    "cloudbuild.googleapis.com",
+  ])
 
-resource "google_project_service" "firebasehosting" {
-  service            = "firebasehosting.googleapis.com"
-  disable_on_destroy = false
-}
-
-resource "google_project_service" "cloudbuild" {
-  service            = "cloudbuild.googleapis.com"
+  service            = each.value
   disable_on_destroy = false
 }
 
 # ─── Firebase Project ───────────────────────────────
 
 resource "google_firebase_project" "default" {
-  provider = google
+  provider = google-beta
   project  = var.project_id
 
-  depends_on = [google_project_service.firebase]
+  depends_on = [google_project_service.apis]
 }
 
 # ─── Firebase Hosting Site ──────────────────────────
 
 resource "google_firebase_hosting_site" "default" {
-  provider = google
+  provider = google-beta
   project  = var.project_id
   site_id  = var.project_id
 
-  depends_on = [
-    google_firebase_project.default,
-    google_project_service.firebasehosting,
-  ]
+  depends_on = [google_firebase_project.default]
 }
 
 # ─── Service Account for CI/CD ──────────────────────
@@ -86,26 +81,25 @@ resource "google_service_account" "github_actions" {
   description  = "Service account for GitHub Actions CI/CD pipeline"
 }
 
-resource "google_project_iam_member" "firebase_admin" {
-  project = var.project_id
-  role    = "roles/firebase.admin"
-  member  = "serviceAccount:${google_service_account.github_actions.email}"
-}
+resource "google_project_iam_member" "roles" {
+  for_each = toset([
+    "roles/firebase.admin",
+    "roles/firebasehosting.admin",
+  ])
 
-resource "google_project_iam_member" "hosting_admin" {
   project = var.project_id
-  role    = "roles/firebasehosting.admin"
+  role    = each.value
   member  = "serviceAccount:${google_service_account.github_actions.email}"
 }
 
 # ─── Outputs ────────────────────────────────────────
 
-output "hosting_site_url" {
+output "hosting_url" {
   value       = "https://${var.project_id}.web.app"
   description = "Firebase Hosting default URL"
 }
 
-output "service_account_email" {
+output "sa_email" {
   value       = google_service_account.github_actions.email
   description = "Service account for GitHub Actions"
 }

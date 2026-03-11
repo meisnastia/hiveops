@@ -28,7 +28,7 @@ infra/.terraform/
 infra/*.tfstate
 infra/*.tfstate.backup
 infra/*.tfvars
-infra/.terraform.lock.hcl
+# Keep .terraform.lock.hcl in git (Terraform best practice)
 
 # Cache
 .eslintcache
@@ -36,5 +36,14 @@ infra/.terraform.lock.hcl
 
 # Working notes (not for repo)
 anastasia_db.md
+anastasia_legend.md
 nastya-junior-devops.md
 photo_2026-03-11*
+
+# Firebase
+firebase-debug.log
+.firebase/
+
+# Terraform local files (secrets)
+infra/*.json
+infra/terraform.tfvars
