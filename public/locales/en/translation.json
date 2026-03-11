@@ -9,7 +9,7 @@
   "hero_greeting": "Hi, I'm",
   "hero_name": "Nastya",
   "hero_surname": "Hnylytska",
-  "hero_intro": "DevOps / Platform Engineer with 2+ years of hands-on experience. Building cloud infrastructure on GCP & Azure — from Terraform modules to CI/CD pipelines to monitoring stacks.",
+  "hero_intro": "DevOps / Platform Engineer with 3+ years in the field. Building cloud infrastructure on GCP & Azure — from Terraform modules to CI/CD pipelines to monitoring stacks.",
   "view_projects": "View Projects",
   "terminal_resume": "$ terminal resume",
 
@@ -52,7 +52,7 @@
   "resume_save_pdf": "Save as PDF",
   "resume_terminal": "Terminal Resume",
   "resume_position": "DevOps / Platform Engineer",
-  "resume_summary": "DevOps / Platform Engineer with 2+ years of hands-on experience building cloud infrastructure on GCP and Azure. Structured learning (8 GCP badges, 35+ labs) combined with real project work under mentorship — from Terraform modules and CI/CD pipelines to monitoring stacks and ML infrastructure. Focused on understanding systems deeply, not just tools.",
+  "resume_summary": "DevOps / Platform Engineer with 3+ years in the field — from structured learning (8 GCP badges, 35+ labs) to real project work under mentorship on GCP and Azure. Building cloud infrastructure with Terraform, CI/CD pipelines, monitoring stacks, and ML infrastructure. Focused on understanding systems deeply, not just tools.",
   "resume_section_exp": "Experience",
   "resume_section_edu": "Education",
   "resume_section_skills": "Technical Skills",

@@ -12,8 +12,8 @@ const resumeData = {
   },
 
   summary: {
-    en: "DevOps / Platform Engineer with 2+ years of hands-on experience building cloud infrastructure on GCP and Azure. Structured learning (8 GCP badges, 35+ labs) combined with real project work under mentorship — from Terraform modules and CI/CD pipelines to monitoring stacks and AI infrastructure. Focused on understanding systems deeply, not just tools. Interested in AI/ML infrastructure and platform engineering.",
-    ua: "DevOps / Platform інженер з 2+ роками практичного досвіду побудови хмарної інфраструктури на GCP та Azure. Структуроване навчання (8 GCP бейджів, 35+ лаб) у поєднанні з реальною проєктною роботою під менторством — від Terraform модулів та CI/CD пайплайнів до моніторинг-стеків та AI-інфраструктури. Фокус на глибокому розумінні систем, а не лише інструментів.",
+    en: "DevOps / Platform Engineer with 3+ years in the field — from structured learning (8 GCP badges, 35+ labs) to real project work under mentorship on GCP and Azure. Building cloud infrastructure with Terraform, CI/CD pipelines, monitoring stacks, and ML infrastructure. Focused on understanding systems deeply, not just tools.",
+    ua: "DevOps / Platform інженер з 3+ роками у сфері — від структурованого навчання (8 GCP бейджів, 35+ лаб) до реальної проєктної роботи під менторством на GCP та Azure. Побудова хмарної інфраструктури з Terraform, CI/CD пайплайнів, моніторинг-стеків та ML-інфраструктури. Фокус на глибокому розумінні систем, а не лише інструментів.",
   },
 
   experience: [

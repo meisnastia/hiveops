@@ -24,7 +24,7 @@ export default function Footer() {
           >
             <p className="mb-0">
               &copy; {year} Anastasia Hnylytska. {t("footer_built")}{" "}
-              <span style={{ color: "var(--accent)" }}>&#x2B21;</span>
+              <span style={{ color: "var(--accent)" }}>&#x1F41D;</span>
             </p>
           </Col>
           <Col md={6} className="text-center text-md-end mt-3 mt-md-0">

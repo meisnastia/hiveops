@@ -31,7 +31,7 @@ const COMMANDS = {
       "",
       "Got into DevOps by watching a platform engineer work daily.",
       "What started as curiosity in 2022 became a deep passion.",
-      "2+ years of learning, building, and going deeper every month.",
+      "3+ years in DevOps — learning, building, and going deeper every month.",
       "",
       '"I don\'t just learn tools — I understand why they',
       'exist and what problems they solve."',
