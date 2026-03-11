@@ -86,8 +86,8 @@ export const PROJECTS = [
     demoLink: "",
   },
   {
-    id: "hiveops",
-    title: "HiveOps",
+    id: "smartbee-portfolio",
+    title: "SmartBee Portfolio",
     description:
       "This portfolio itself — built and deployed using the same DevOps practices I apply to infrastructure projects. Full GitOps workflow: code in GitHub, CI/CD pipeline, automated deployment. Because a DevOps engineer's portfolio should be a DevOps project.",
     role: [

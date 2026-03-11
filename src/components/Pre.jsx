@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 
 const BOOT_LINES = [
-  "$ ssh visitor@hiveops.dev",
-  "visitor@hiveops:~$ initializing hive cluster...",
+  "$ ssh visitor@smartbee.me",
+  "visitor@smartbee:~$ initializing hive cluster...",
   "",
   "  ╔══════════════════════════════════════╗",
-  "  ║          H I V E O P S              ║",
+  "  ║         S M A R T B E E             ║",
   "  ║     Infrastructure as Instinct      ║",
   "  ╚══════════════════════════════════════╝",
   "",
@@ -18,14 +18,14 @@ const BOOT_LINES = [
   "[ OK ] Pulling Helm charts...",
   "[ OK ] Syncing ArgoCD applications...",
   "",
-  "visitor@hiveops:~$ kubectl get pods -n portfolio",
+  "visitor@smartbee:~$ kubectl get pods -n portfolio",
   "NAME                        READY   STATUS    AGE",
-  "hive-frontend-7d4f8b-x2k    1/1     Running   2y",
+  "bee-frontend-7d4f8b-x2k     1/1     Running   2y",
   "skills-api-5c8d2f-m8n       1/1     Running   2y",
   "projects-srv-9f2a1-k3p      1/1     Running   1y",
   "monitoring-stack-3b7e4      1/1     Running   1y",
   "",
-  "All systems operational. Welcome to the hive.",
+  "All systems operational. Welcome to SmartBee.",
   "",
 ];
 

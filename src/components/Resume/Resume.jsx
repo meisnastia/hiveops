@@ -289,14 +289,19 @@ export default function Resume() {
         {/* Education */}
         <div style={{ ...cardBg, marginBottom: "1.5rem" }}>
           <div style={sectionTitle}>{t("resume_section_edu")}</div>
-          <div className="d-flex justify-content-between align-items-start flex-wrap gap-1">
+          <div className="d-flex justify-content-between align-items-start flex-wrap gap-1" style={{ marginBottom: "0.8rem" }}>
             <div>
               <h4 style={{ color: "var(--text-heading)", fontSize: "1rem", fontWeight: 700, marginBottom: "0.2rem" }}>{t("resume_edu_degree")}</h4>
-              <p style={{ color: "var(--text-tertiary)", fontSize: "0.85rem", marginBottom: "0.4rem" }}>
-                <a href="https://mu.edu.ua/" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", borderBottom: "1px dashed var(--text-tertiary)" }}>{t("resume_edu_school")}</a>
-              </p>
+              <p style={{ color: "var(--text-tertiary)", fontSize: "0.85rem", marginBottom: 0 }}>{t("resume_edu_school")}</p>
             </div>
             <span style={{ color: "var(--accent)", fontSize: "0.8rem", fontWeight: 600, fontFamily: "'JetBrains Mono', monospace", whiteSpace: "nowrap" }}>{t("resume_edu_period")}</span>
+          </div>
+          <div className="d-flex justify-content-between align-items-start flex-wrap gap-1" style={{ marginBottom: "0.8rem" }}>
+            <div>
+              <h4 style={{ color: "var(--text-heading)", fontSize: "1rem", fontWeight: 700, marginBottom: "0.2rem" }}>{t("resume_edu2_degree")}</h4>
+              <p style={{ color: "var(--text-tertiary)", fontSize: "0.85rem", marginBottom: 0 }}>{t("resume_edu2_school")}</p>
+            </div>
+            <span style={{ color: "var(--accent)", fontSize: "0.8rem", fontWeight: 600, fontFamily: "'JetBrains Mono', monospace", whiteSpace: "nowrap" }}>{t("resume_edu2_period")}</span>
           </div>
           <p style={{ color: "var(--text-secondary)", fontSize: "0.88rem", fontStyle: "italic", margin: 0 }}>{t("resume_edu_note")}</p>
         </div>

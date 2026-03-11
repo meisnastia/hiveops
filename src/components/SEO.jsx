@@ -8,11 +8,11 @@ export default function SEO({ title, description, path = "" }) {
   return (
     <Helmet>
       <title>
-        {title ? `${title} | HiveOps` : "HiveOps — DevOps & Platform Engineer"}
+        {title ? `${title} | SmartBee` : "SmartBee — DevOps & Platform Engineer"}
       </title>
       <meta name="description" content={description || defaultDesc} />
       <link rel="canonical" href={`${siteUrl}${path}`} />
-      <meta property="og:title" content={title || "HiveOps"} />
+      <meta property="og:title" content={title || "SmartBee"} />
       <meta
         property="og:description"
         content={description || defaultDesc}

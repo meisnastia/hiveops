@@ -65,7 +65,7 @@ export default function Navbar() {
             gap: "0.5rem",
           }}
         >
-          <GiHoneycomb /> HiveOps
+          <GiHoneycomb /> SmartBee
         </BsNavbar.Brand>
 
         <div className="d-flex align-items-center gap-2 d-md-none">

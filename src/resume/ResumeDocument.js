@@ -65,14 +65,16 @@ function Education({ lang }) {
   const labels = d.sectionLabels;
   return e(View, null,
     e(SectionTitle, { title: getField(labels.education, lang) }),
-    e(View, { style: styles.eduBlock },
-      e(View, { style: styles.expHeader },
-        e(Text, { style: styles.expTitle }, getField(d.education.degree, lang)),
-        e(Text, { style: styles.expPeriod }, d.education.period)
-      ),
-      e(Text, { style: styles.expCompany }, getField(d.education.institution, lang)),
-      e(Text, { style: styles.eduNote }, getField(d.education.note, lang))
-    )
+    ...d.education.map((edu, i) =>
+      e(View, { key: `edu-${i}`, style: { ...styles.eduBlock, marginBottom: i < d.education.length - 1 ? 6 : 0 } },
+        e(View, { style: styles.expHeader },
+          e(Text, { style: styles.expTitle }, getField(edu.degree, lang)),
+          e(Text, { style: styles.expPeriod }, edu.period)
+        ),
+        e(Text, { style: styles.expCompany }, getField(edu.institution, lang))
+      )
+    ),
+    e(Text, { style: styles.eduNote }, getField(d.educationNote, lang))
   );
 }
 

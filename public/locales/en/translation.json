@@ -83,10 +83,13 @@
   "resume_exp3_p2": "Exploring Terraform with Azure provider",
   "resume_exp3_p3": "Preparing for AZ-900 Azure Fundamentals certification",
 
-  "resume_edu_degree": "Master's Degree in International Relations",
+  "resume_edu_degree": "Master's in International Relations",
   "resume_edu_school": "Mariupol State University",
-  "resume_edu_period": "2021 — Feb 2026",
-  "resume_edu_note": "Pivoted to DevOps/Cloud engineering during studies, combining analytical thinking from IR with technical skills",
+  "resume_edu_period": "2024 — 2025",
+  "resume_edu_note": "Pivoted to DevOps/Cloud engineering during studies, combining analytical thinking with technical skills",
+  "resume_edu2_degree": "Bachelor's in Political Science",
+  "resume_edu2_school": "Volodymyr Dahl East Ukrainian National University",
+  "resume_edu2_period": "2020 — 2024",
 
   "resume_lang_uk": "Ukrainian",
   "resume_lang_uk_level": "Native",

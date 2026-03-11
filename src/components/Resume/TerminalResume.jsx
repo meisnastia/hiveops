@@ -106,21 +106,27 @@ const COMMANDS = {
       "   DevOps for production ML platform: CI/CD, security, monitoring, builds",
       "   900+ tests, 4 security audit rounds — private commercial project",
       "",
-      "4. HiveOps                                        [Platform]",
+      "4. SmartBee Portfolio                              [Platform]",
       "   This portfolio — built and deployed with full GitOps workflow",
-      "   → github.com/meisnastia/hiveops",
+      "   → smartbee.me | github.com/meisnastia/hiveops",
     ],
   },
   education: {
     output: [
-      "┌──────────────────────────────────────────────┐",
-      "│  Master's Degree in International Relations  │",
-      "│  Mariupol State University (mu.edu.ua)        │",
-      "│  2021 — Feb 2026                              │",
-      "└──────────────────────────────────────────────┘",
+      "┌──────────────────────────────────────────────────┐",
+      "│  Master's in International Relations              │",
+      "│  Mariupol State University                        │",
+      "│  2024 — 2025                                      │",
+      "└──────────────────────────────────────────────────┘",
+      "",
+      "┌──────────────────────────────────────────────────┐",
+      "│  Bachelor's in Political Science                  │",
+      "│  Volodymyr Dahl East Ukrainian National Univ.     │",
+      "│  2020 — 2024                                      │",
+      "└──────────────────────────────────────────────────┘",
       "",
       "Pivoted to DevOps/Cloud engineering during studies,",
-      "combining analytical thinking from IR with technical skills.",
+      "combining analytical thinking with technical skills.",
     ],
   },
   certs: {
@@ -164,7 +170,7 @@ const COMMANDS = {
 
 const BOOT_LINES = [
   "  ╔══════════════════════════════════════╗",
-  "  ║          H I V E O P S              ║",
+  "  ║         S M A R T B E E             ║",
   "  ║     Infrastructure as Instinct      ║",
   "  ╚══════════════════════════════════════╝",
   "",
@@ -295,7 +301,7 @@ export default function TerminalResume() {
               <span className="dot dot-green" />
             </div>
             <span className="terminal-title">
-              nastya@hiveops: ~/portfolio
+              nastya@smartbee: ~/portfolio
             </span>
           </div>
 
@@ -305,7 +311,7 @@ export default function TerminalResume() {
               <div key={i} className={`terminal-line terminal-${line.type}`}>
                 {line.type === "prompt" && (
                   <span className="terminal-prompt-text">
-                    nastya@hiveops:~${" "}
+                    nastya@smartbee:~${" "}
                   </span>
                 )}
                 {line.text}
@@ -314,7 +320,7 @@ export default function TerminalResume() {
             {booted && (
               <div className="terminal-line terminal-input-line">
                 <span className="terminal-prompt-text">
-                  nastya@hiveops:~${" "}
+                  nastya@smartbee:~${" "}
                 </span>
                 <input
                   ref={inputRef}

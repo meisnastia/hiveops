@@ -76,14 +76,21 @@ const resumeData = {
     },
   ],
 
-  education: {
-    degree: { en: "Master's Degree in International Relations", ua: "Магістр міжнародних відносин" },
-    institution: { en: "Mariupol State University (mu.edu.ua)", ua: "Маріупольський державний університет (mu.edu.ua)" },
-    period: "2021 — Feb 2026",
-    note: {
-      en: "Pivoted to DevOps/Cloud engineering during studies, combining analytical thinking from IR with technical skills",
-      ua: "Під час навчання перейшла до DevOps/Cloud інженерії, поєднуючи аналітичне мислення з IR та технічні навички",
+  education: [
+    {
+      degree: { en: "Master's in International Relations", ua: "Магістр міжнародних відносин" },
+      institution: { en: "Mariupol State University", ua: "Маріупольський державний університет" },
+      period: "2024 — 2025",
     },
+    {
+      degree: { en: "Bachelor's in Political Science", ua: "Бакалавр політології" },
+      institution: { en: "Volodymyr Dahl East Ukrainian National University", ua: "СНУ ім. Даля" },
+      period: "2020 — 2024",
+    },
+  ],
+  educationNote: {
+    en: "Pivoted to DevOps/Cloud engineering during studies, combining analytical thinking with technical skills",
+    ua: "Під час навчання перейшла до DevOps/Cloud інженерії, поєднуючи аналітичне мислення та технічні навички",
   },
 
   skills: [
