@@ -52,7 +52,7 @@
   "resume_save_pdf": "Save as PDF",
   "resume_terminal": "Terminal Resume",
   "resume_position": "DevOps / Platform Engineer",
-  "resume_summary": "Aspiring DevOps engineer with 2+ years of structured learning on GCP (Cloud Skills Boost, 8 badges) and hands-on mentorship experience building cloud infrastructure with Terraform, CI/CD pipelines, and monitoring stacks. Passionate about understanding systems deeply — not just tools, but the problems they solve. Interested in AI/ML infrastructure and platform engineering.",
+  "resume_summary": "DevOps / Platform Engineer with 2+ years of hands-on experience building cloud infrastructure on GCP and Azure. Structured learning (8 GCP badges, 35+ labs) combined with real project work under mentorship — from Terraform modules and CI/CD pipelines to monitoring stacks and ML infrastructure. Focused on understanding systems deeply, not just tools.",
   "resume_section_exp": "Experience",
   "resume_section_edu": "Education",
   "resume_section_skills": "Technical Skills",
@@ -127,7 +127,7 @@
 
   "monitoring_title_1": "Monitoring",
   "monitoring_title_2": "Dashboard",
-  "monitoring_desc": "Real-time observability — because you can't fix what you can't see",
+  "monitoring_desc": "Production observability — because you can't fix what you can't see",
   "monitoring_cpu": "CPU Usage",
   "monitoring_requests": "Request Rate (req/s)",
   "monitoring_errors": "Error Rate",
